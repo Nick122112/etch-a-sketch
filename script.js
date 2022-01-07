@@ -1,7 +1,5 @@
 "use strict";
 
-// creating and appending sketch container
-
 const sketchContainer = document.createElement("div");
 sketchContainer.setAttribute(
   "style",
@@ -36,10 +34,26 @@ function changeColor() {
 
 // function to clear grid
 function clearGrid() {
+  // returns sketchboxes to white
   sketchBoxes.forEach((sketchBox) => {
     sketchBox.style.backgroundColor = "white";
   });
+
+  //asks user how large the grid should be
   const gridSize = prompt("How large would you like the grid?");
+
+  //math to figure out height and width of new grid
+  //container size / grid size - 0.2
+  const containerSize = parseInt(
+    sketchContainer.style.width.replace(/rem/, "")
+  );
+  const gridSizeNumber = Number(gridSize);
+  const gridWidth = (containerSize / gridSizeNumber - 0.2).toFixed(2);
+  const gridWidthRem = gridWidth + "rem";
+  const gridHeightRem = gridWidthRem;
+  sketchBox.style.width = gridWidthRem;
+  sketchBox.style.height = gridHeightRem;
+
   for (let i = 0; i < gridSize * gridSize; i++) {
     sketchContainer.appendChild(sketchBox.cloneNode());
   }
