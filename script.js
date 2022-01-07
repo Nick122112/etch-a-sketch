@@ -5,7 +5,7 @@
 const sketchContainer = document.createElement("div");
 sketchContainer.setAttribute(
   "style",
-  "width: 64rem; background-color: black; display: flex; flex-wrap: wrap;"
+  "width: 64rem; height:64rem; background-color: black; display: flex; flex-wrap: wrap;"
 );
 document.getElementById("content-container").appendChild(sketchContainer);
 
@@ -39,7 +39,17 @@ function clearGrid() {
   sketchBoxes.forEach((sketchBox) => {
     sketchBox.style.backgroundColor = "white";
   });
-  //   prompt("How large would you like the grid?");
+  const gridSize = prompt("How large would you like the grid?");
+  for (let i = 0; i < gridSize * gridSize; i++) {
+    sketchContainer.appendChild(sketchBox.cloneNode());
+  }
+  //   sketchBox.setAttribute(
+  //     "style",
+  //     "width: ((sketchContainer.style.width / gridSize) - .2rem); height: ((sketchContainer.style.width / gridSize) - .2rem)"
+  //   );
+  //   console.log(sketchContainer.style.width);
+  //   console.log(gridSize);
+  //   console.log(sketchContainer.style.width / gridSize);
 }
 
 // for each sketchbox add an event listener that changes the color
