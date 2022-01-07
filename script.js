@@ -1,12 +1,13 @@
 "use strict";
 
 // creating and appending sketch container
+
 const sketchContainer = document.createElement("div");
 sketchContainer.setAttribute(
   "style",
   "width: 64rem; background-color: black; display: flex; flex-wrap: wrap;"
 );
-document.body.appendChild(sketchContainer);
+document.getElementById("content-container").appendChild(sketchContainer);
 
 //creating and appending sketch box
 const sketchBox = document.createElement("div");
@@ -33,7 +34,19 @@ function changeColor() {
   this.style.backgroundColor = "black";
 }
 
+// function to clear grid
+function clearGrid() {
+  sketchBoxes.forEach((sketchBox) => {
+    sketchBox.style.backgroundColor = "white";
+  });
+  //   prompt("How large would you like the grid?");
+}
+
 // for each sketchbox add an event listener that changes the color
 sketchBoxes.forEach((sketchBox) => {
   sketchBox.addEventListener("mouseover", changeColor);
 });
+
+// assign button to a variable and add event listener
+const btn = document.querySelector("#btn");
+btn.addEventListener("click", clearGrid);
