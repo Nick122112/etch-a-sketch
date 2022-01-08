@@ -168,8 +168,46 @@ function clearGrid() {
   //   console.log(sketchContainer.style.width);
   //   console.log(gridSize);
   //   console.log(sketchContainer.style.width / gridSize);
+
+  // random color event listener
+  function randomColorEvent() {
+    removeEventListener("mouseover", getRandomColor);
+    sketchBoxes.forEach((sketchBox) => {
+      sketchBox.addEventListener("mouseover", getRandomColor);
+    });
+  }
+
+  // add event event listener
+  const rainbow = document.querySelector("#rainbow");
+  rainbow.addEventListener("click", randomColorEvent);
 }
 
 // assign button to a variable and add event listener
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", clearGrid);
+
+// random color function
+function getRandomColor() {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * letters.length)];
+  }
+  this.style.backgroundColor = color;
+}
+
+// random color event listener
+function randomColorEvent() {
+  removeEventListener("mouseover", getRandomColor);
+  sketchBoxes.forEach((sketchBox) => {
+    sketchBox.addEventListener("mouseover", getRandomColor);
+  });
+}
+
+// add event event listener
+const rainbow = document.querySelector("#rainbow");
+rainbow.addEventListener("click", randomColorEvent);
+
+// function eraseSketchBox() {
+//   this.style.backgroundColor = "white";
+// }
