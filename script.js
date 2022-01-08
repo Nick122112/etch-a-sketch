@@ -171,15 +171,25 @@ function clearGrid() {
 
   // random color event listener
   function randomColorEvent() {
-    removeEventListener("mouseover", getRandomColor);
     sketchBoxes.forEach((sketchBox) => {
       sketchBox.addEventListener("mouseover", getRandomColor);
     });
   }
 
-  // add event event listener
+  // add rainbow event listener
   const rainbow = document.querySelector("#rainbow");
   rainbow.addEventListener("click", randomColorEvent);
+
+  // eraser event listener
+  function eraserEvent() {
+    sketchBoxes.forEach((sketchBox) => {
+      sketchBox.addEventListener("mouseover", eraseSketchBox);
+    });
+  }
+
+  // add event listener to eraser button
+  const eraser = document.querySelector("#eraser");
+  eraser.addEventListener("click", eraserEvent);
 }
 
 // assign button to a variable and add event listener
@@ -198,16 +208,27 @@ function getRandomColor() {
 
 // random color event listener
 function randomColorEvent() {
-  removeEventListener("mouseover", getRandomColor);
   sketchBoxes.forEach((sketchBox) => {
     sketchBox.addEventListener("mouseover", getRandomColor);
   });
 }
 
-// add event event listener
+// add event listener to rainbow button
 const rainbow = document.querySelector("#rainbow");
 rainbow.addEventListener("click", randomColorEvent);
 
-// function eraseSketchBox() {
-//   this.style.backgroundColor = "white";
-// }
+// eraser function
+function eraseSketchBox() {
+  this.style.backgroundColor = "white";
+}
+
+// eraser event listener
+function eraserEvent() {
+  sketchBoxes.forEach((sketchBox) => {
+    sketchBox.addEventListener("mouseover", eraseSketchBox);
+  });
+}
+
+// add event listener to eraser button
+const eraser = document.querySelector("#eraser");
+eraser.addEventListener("click", eraserEvent);
