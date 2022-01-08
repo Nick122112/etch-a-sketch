@@ -115,7 +115,7 @@ const sketchBoxes = sketchContainer.querySelectorAll("div");
 
 // function to change color of sketchboxes
 function changeColor() {
-  this.style.backgroundColor = "black";
+  this.style.backgroundColor = document.querySelector("input").value;
 }
 
 // for each sketchbox add an event listener that changes the color
