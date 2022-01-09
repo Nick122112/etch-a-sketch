@@ -11,10 +11,17 @@
   <body>
     <div id="content-container">
       <h1>Etch-A-Sketch</h1>
-      <button id="btn">Clear Grid</button>
-      <button id="rainbow">Rainbow</button>
-      <button id="eraser">Eraser</button>
-      <input type="color" id="color-picker" />
+      <div id="options-container">
+        <button id="refresh-grid">Refresh Grid</button>
+        <button id="color-btn">Color</button>
+        <button id="rainbow">Rainbow</button>
+        <button id="eraser">Eraser</button>
+        <input type="color" id="color-picker" />
+        <div id="slider-container">
+          <p>Value: <span id="grid-slider-value"></span></p>
+          <input type="range" min="1" max="100" value="16" id="grid-slider" />
+        </div>
+      </div>
     </div>
   </body>
 </html>
