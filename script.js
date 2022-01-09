@@ -1,11 +1,14 @@
 "use strict";
 
 const sketchContainer = document.createElement("div");
+sketchContainer.setAttribute("id", "sketch-container");
 sketchContainer.setAttribute(
   "style",
-  "width: 64rem; height:64rem; background-color: black; display: flex; flex-wrap: wrap;"
+  "width: 64rem; height:64rem; background-color: black; display: flex; flex-wrap: wrap; margin-bottom: 3rem;"
 );
-document.getElementById("content-container").appendChild(sketchContainer);
+document
+  .getElementById("content-container")
+  .insertBefore(sketchContainer, document.getElementById("options-container"));
 
 //creating and appending sketch box
 const sketchBox = document.createElement("div");
@@ -18,7 +21,7 @@ sketchBox.setAttribute(
 const slider = document.getElementById("grid-slider");
 const output = document.getElementById("grid-slider-value");
 
-output.textContent = slider.value;
+output.textContent = `${slider.value} X ${slider.value}`;
 
 slider.oninput = function () {
   output.textContent = this.value;
@@ -42,6 +45,8 @@ function removeGrid(sketchContainer) {
 // function to clear grid
 function clearGrid() {
   removeGrid(sketchContainer);
+
+  output.textContent = `${slider.value} X ${slider.value}`;
 
   //math to figure out height and width of new grid
   //container size / grid size - 0.2

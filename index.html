@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Secular+One&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <title>Etch-A-Sketch</title>
@@ -12,15 +18,17 @@
     <div id="content-container">
       <h1>Etch-A-Sketch</h1>
       <div id="options-container">
-        <button id="refresh-grid">Refresh Grid</button>
+        <div class="color-pick">
+          <input type="color" id="color-picker" />
+        </div>
         <button id="color-btn">Color</button>
         <button id="rainbow">Rainbow</button>
         <button id="eraser">Eraser</button>
-        <input type="color" id="color-picker" />
-        <div id="slider-container">
-          <p>Value: <span id="grid-slider-value"></span></p>
-          <input type="range" min="1" max="100" value="16" id="grid-slider" />
-        </div>
+        <button id="refresh-grid">Refresh Grid</button>
+      </div>
+      <div id="slider-container">
+        <p><span id="grid-slider-value"></span></p>
+        <input type="range" min="1" max="100" value="16" id="grid-slider" />
       </div>
     </div>
   </body>
