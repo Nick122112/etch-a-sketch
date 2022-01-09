@@ -103,6 +103,10 @@ function clearGrid() {
     this.style.backgroundColor = document.getElementById("color-picker").value;
   }
 
+  function colorPickMode() {
+    this.style.backgroundColor = document.getElementById("color-picker").value;
+  }
+
   function eraserModePicker() {
     removeEventListener();
     colorMode = eraserMode;
@@ -125,10 +129,17 @@ function clearGrid() {
     refreshGrid();
   }
 
+  function colorPickModePicker() {
+    removeEventListener();
+    colorMode = colorPickMode;
+    addEventListener();
+  }
+
   refreshGridBtn.addEventListener("click", clearGridMode);
   eraserBtn.addEventListener("click", eraserModePicker);
   rainbowBtn.addEventListener("click", rainbowModePicker);
   colorBtn.addEventListener("click", pencilModePicker);
+  colorPickBtn = document.getElementById("color-picker");
 
   sketchBoxes.forEach((sketchBox) => {
     sketchBox.addEventListener("mouseover", colorMode);
@@ -176,6 +187,10 @@ function pencilMode() {
   this.style.backgroundColor = document.getElementById("color-picker").value;
 }
 
+function colorPickMode() {
+  this.style.backgroundColor = document.getElementById("color-picker").value;
+}
+
 function eraserModePicker() {
   removeEventListener();
   colorMode = eraserMode;
@@ -198,15 +213,23 @@ function clearGridMode() {
   refreshGrid();
 }
 
+function colorPickModePicker() {
+  removeEventListener();
+  colorMode = colorPickMode;
+  addEventListener();
+}
+
 const refreshGridBtn = document.getElementById("refresh-grid");
 const eraserBtn = document.getElementById("eraser");
 const rainbowBtn = document.getElementById("rainbow");
 const colorBtn = document.getElementById("color-btn");
+const colorPickBtn = document.getElementById("color-picker");
 
 refreshGridBtn.addEventListener("click", clearGridMode);
 eraserBtn.addEventListener("click", eraserModePicker);
 rainbowBtn.addEventListener("click", rainbowModePicker);
 colorBtn.addEventListener("click", pencilModePicker);
+colorPickBtn.addEventListener("click", colorPickModePicker);
 
 sketchBoxes.forEach((sketchBox) => {
   sketchBox.addEventListener("mouseover", colorMode);
